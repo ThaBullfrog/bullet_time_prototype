@@ -138,6 +138,15 @@ public static class Extensions
         }
     }
 
+    public static void SetDamageDirection(this GameObject obj, Vector2 direction)
+    {
+        INeedsDirectionDamagedFrom[] componentsThatNeedDirection = obj.GetComponents<INeedsDirectionDamagedFrom>();
+        foreach (INeedsDirectionDamagedFrom componentThatNeedsDirection in componentsThatNeedDirection)
+        {
+            componentThatNeedsDirection.directionDamagedFrom = direction;
+        }
+    }
+
     public static SerializableVector2 ToSerializable(this Vector2 vector)
     {
         return new SerializableVector2(vector);

@@ -47,6 +47,7 @@ public class Bullet : MonoBehaviour, IBullet
         {
             if (overlaps[i].gameObject != owner)
             {
+                overlaps[i].gameObject.SetDamageDirection(transform.right);
                 overlaps[i].gameObject.DamageIfDamageable(damage);
                 hitSomething = true;
             }
